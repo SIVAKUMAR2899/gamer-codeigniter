@@ -3,6 +3,12 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class GamerModel extends CI_Model{
+
+    public function __construct(){
+
+        $this->load->database();
+
+    }
     
     public function get_gamer(){
         $query = $this->db->get('gamer');

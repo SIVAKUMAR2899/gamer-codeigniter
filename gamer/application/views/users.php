@@ -129,7 +129,7 @@ table tr td{
                                 <a href="edit_page" class="btn-secondary">Update</a>
                             </td>
                             <td>
-                                <a href="delete_user" class="btn-danger">Delete</a>
+                                <a href="delete_user" action="delete_user" class="btn-danger">Delete</a>
                             </td>
                         </tr>
                         <?php 

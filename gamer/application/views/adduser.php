@@ -1,6 +1,6 @@
 <div class="main-content">
     <div>
-        <h1>ADD USER<h1>
+        <h1>ADD USER<h1> 
 
         <br><br>
 

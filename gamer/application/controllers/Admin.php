@@ -61,10 +61,9 @@ class Admin extends CI_Controller {
 		}
 	}
 
-	function delete_user(){
+	public function delete_user(){
 		$this->load->model('delete_model');
 		$result = $this->delete_model->delete($id);
-		// redirect(base_url('gamer'));
 		if($result == true){
 			header("location:".'users_page');
 		}else{
@@ -73,11 +72,11 @@ class Admin extends CI_Controller {
 	}
 
 	function edit_page(){
-		// $data = $this->user_model->edit($edit_id);
 		$this->load->view('updateuser');
 	}
 
-	function update_process(){
+	function update_process($id){
+	
 		$data['firstname'] = $this->input->post("firstname");
 		$data['lastname'] = $this->input->post("lastname");
 		$data['age'] = $this->input->post("age");
@@ -86,14 +85,16 @@ class Admin extends CI_Controller {
 		$data['email'] = $this->input->post("email");
 
 		$this->load->model('update_model');
-		$status = $this->update_model->update($id,$data);
+
+		$status = $this->update_model->update_gamer($id,$data);
 
 		if($status == true){
 			header("location:".'users_page');
 		}else{
-			header("location:".'edit_user');
+			header("location:".'edit_page');
 		}
 	}
+
 
 
 	public function login(){		
