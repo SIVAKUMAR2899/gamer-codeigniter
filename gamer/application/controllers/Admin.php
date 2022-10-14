@@ -19,14 +19,14 @@ class Admin extends CI_Controller {
 	 * @see https://codeigniter.com/userguide3/general/urls.html
 	 */
 
-	// public function __construct(){
-	// 	parent::__construct();
-	// 	$this->load->helper('url');
-	// 	$this->load->library('form_validation');
-	// 	$this->load->model('user_model');
-	// 	$this->load->database();
-	// 	$this->load->library('session');
-	// }
+	public function __construct(){
+		parent::__construct();
+		$this->load->helper('url');
+		$this->load->library('form_validation');
+		// $this->load->model('user_model');
+		$this->load->database();
+		$this->load->library('session');
+	}
 
 	public function index()
 	{
@@ -61,10 +61,15 @@ class Admin extends CI_Controller {
 		}
 	}
 
+
+	function delete_page(){
+		$this->load->view('deleteuser');
+	}
+
 	public function delete_user(){
 		$this->load->model('delete_model');
-		$result = $this->delete_model->delete($id);
-		if($result == true){
+		$delete_result = $this->delete_model->delete($id);
+		if($delete_result == true){
 			header("location:".'users_page');
 		}else{
 			header("location:".'users_page');
@@ -75,7 +80,7 @@ class Admin extends CI_Controller {
 		$this->load->view('updateuser');
 	}
 
-	function update_process($id){
+	function update_process(){
 	
 		$data['firstname'] = $this->input->post("firstname");
 		$data['lastname'] = $this->input->post("lastname");
@@ -86,9 +91,9 @@ class Admin extends CI_Controller {
 
 		$this->load->model('update_model');
 
-		$status = $this->update_model->update_gamer($id,$data);
+		$update_status = $this->update_model->update_gamer($id,$data);
 
-		if($status == true){
+		if($update_status == true){
 			header("location:".'users_page');
 		}else{
 			header("location:".'edit_page');
@@ -122,7 +127,7 @@ class Admin extends CI_Controller {
 					
 					$this->load->library('session');
 					$this->session->set_userdata('id',$user->id);
-					redirect('admin/admin');
+					redirect('admin');
 					
 				}else{
 					echo "Login Error!";
@@ -144,8 +149,9 @@ class Admin extends CI_Controller {
 		
 		$this->load->library('session');
 		$this->session->unset_userdata('id');
-		redirect('admin');
+		redirect('admin/login');
 	}
 	
 
 }
+

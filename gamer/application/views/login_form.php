@@ -76,16 +76,17 @@ input[type=submit]:hover {
 </style>
 </head>
 <body>
-<h1>Login Form</h1>
+<h1>Login  </h1>
 <div><?php echo validation_errors() ?></div>
+
 <div class="container">
-  <form method="post" action="<?=base_url('admin/login_user')?>">
+<form action="login_user" method="POST">
     <div class="row">
       <div class="col-25">
-        <label for="lname">Email</label>
+        <label for="email">Email</label>
       </div>
       <div class="col-75">
-        <input type="text" id="lname" name="email" placeholder="Your Email">
+        <input type="text" id="email" name="email" placeholder="Your Email">
       </div>
     </div>
 		<div class="row">
@@ -102,11 +103,9 @@ input[type=submit]:hover {
       <input type="submit" value="Submit">
     </div><br>
   </form>
-  <div class="row2">
+  <!-- <div class="row2">
   <a href="<?=base_url('admin/google_login')?>"><img width="250" height="60" src="<?=base_url('asset/images/google_logo.png')?>"></a>
+</div> -->
 </div>
-</div>
-
-
 </body>
 </html>

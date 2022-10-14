@@ -1,3 +1,5 @@
+<?php defined('BASEPATH') OR exit('No direct script access allowed');?>
+
 <div class="main-content">
     <div>
         <h1>ADD USER<h1> 
